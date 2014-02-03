@@ -4,8 +4,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def show
+  def new
   	@user = User.new()
+  end
+
+  def show
   end
 
   def create
