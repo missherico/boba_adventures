@@ -9,10 +9,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def create
-    @user= User.new(params[:user])
+    new_user= params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    @user = User.new(new_user)
     if @user.save
     	flash[:success] = "Welcome to boba nation."
     	sign_in @user

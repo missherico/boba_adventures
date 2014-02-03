@@ -6,6 +6,13 @@ WheresMyBoba::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
   get '/signin' => 'sessions#new'
 
+  #my_boba aliases
+  
+  get '/search', to: 'my_boba#index', as: :search
+  post '/my_boba', to: 'my_boba#index', as: :results
+  get '/my_boba/:id', to: 'my_boba#show', as: :my_boba
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

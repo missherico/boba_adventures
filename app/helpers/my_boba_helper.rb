@@ -1,0 +1,2 @@
+module MyBobaHelper
+end
