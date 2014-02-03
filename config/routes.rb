@@ -2,8 +2,6 @@ WheresMyBoba::Application.routes.draw do
 
   resources :site, :users, :sessions, :my_boba
 
-  root 'my_boba#welcome'
-
   get '/signup', to: 'users#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   get '/signin' => 'sessions#new'
