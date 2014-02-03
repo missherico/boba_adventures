@@ -8,6 +8,8 @@ gem 'sqlite3'
 
 gem 'typhoeus'
 
+gem 'oauth'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
