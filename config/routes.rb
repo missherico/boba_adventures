@@ -1,4 +1,11 @@
 WheresMyBoba::Application.routes.draw do
+
+  resources :site, :users, :sessions
+
+  get '/signup', to: 'users#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+  get '/signin' => 'sessions#new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
