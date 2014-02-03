@@ -1,0 +1,4 @@
+<%= form_tag({:controller=>"my_boba", :action=>"results"}, method: :post) do  %>
+  <%= search_field :location, nil, placeholder: "City, State OR Zip Code" %>
+  <%= submit_tag 'Search!'%>
+<% end %>

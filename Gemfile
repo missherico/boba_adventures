@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'typhoeus'
 
 gem 'oauth'
+gem 'yelp4rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -46,6 +47,14 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 # gem 'capistrano', group: :development
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
 
-gem 'pry', group: [:development, :test]
+group :development do
+gem 'better_errors'
+gem 'binding_of_caller'
+gem 'meta_request'
+gem 'pry'
+gem 'pry-byebug'
+gem 'pry-rails'
+gem 'awesome_print'
+gem 'quiet_assets' 
+end

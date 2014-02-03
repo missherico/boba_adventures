@@ -13,6 +13,7 @@
 #  neighborhoods :text
 #  created_at    :datetime
 #  updated_at    :datetime
+#  location      :string(255)
 #
 
 class MyBoba < ActiveRecord::Base
