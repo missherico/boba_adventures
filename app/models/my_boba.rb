@@ -16,4 +16,31 @@
 #
 
 class MyBoba < ActiveRecord::Base
+
+
+
+self.yelp_me
+
+
+private
+
+  def yelp_me
+    consumer_key = 'pXI7O2w2TzCcH7ub3Di5Bw'
+    consumer_secret = '-PlNCMY1YN1c0-Lh9H4xNWBSMh0'
+    token = '7S78wEVuSybUcAc1legyfpGdPYyhsuAz'
+    token_secret = 'A_vgIl-yVGp87fuPZvuyWeSXcEQ'
+
+    api_host = 'api.yelp.com'
+
+    consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
+    access_token = OAuth::AccessToken.new(consumer, token, token_secret)
+
+  end
+
+
+  def save_yelp_id
+    
+  end
+
+
 end
