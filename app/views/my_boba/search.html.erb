@@ -1,4 +1,9 @@
+<h3>There has GOT to be some boba here somewhere.</h3>
+<h4>Search a City and State</h4>
+<div>
 <%= form_tag({:controller=>"my_boba", :action=>"results"}, method: :post) do  %>
-  <%= search_field :location, nil, placeholder: "City, State OR Zip Code" %>
+  <%= search_field :location, nil, placeholder: "City, State" %>
   <%= submit_tag 'Search!'%>
 <% end %>
+
+</div>

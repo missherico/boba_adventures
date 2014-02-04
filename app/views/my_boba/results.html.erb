@@ -1,2 +1,26 @@
 <h3> RESULTS </h3>
-<%= @results %>
+
+<h4> THERE ARE <%= @boba_locations.length %> locations.  Let's sort further</h4>
+
+
+
+<table>
+  <% @boba_locations.each do |boba_locations| %>
+  <tr>
+  	<td>
+      <%= boba_locations['id'] %>
+  	</td>
+  	<td>
+      <%= boba_locations['name'] %>
+  	</td>
+  	<td>
+      <%= boba_locations['location']['neighborhoods'] %>
+  	</td>
+  	<td>
+      <%= boba_locations['is_closed'] %>
+  	</td>
+  </tr>
+<% end %>
+
+
+</table>

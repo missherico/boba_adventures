@@ -5,9 +5,6 @@ class MyBobaController < ApplicationController
     @my_boba = params[:search]
   end
 
-  def show
-  end
-
   def search
   
     render :search
@@ -16,7 +13,7 @@ class MyBobaController < ApplicationController
   def results
     location = params[:location]
     user_loc = (location[0]).to_s.upcase
-binding.pry
+
     consumer_key = 'pXI7O2w2TzCcH7ub3Di5Bw'
     consumer_secret = '-PlNCMY1YN1c0-Lh9H4xNWBSMh0'
     token = '7S78wEVuSybUcAc1legyfpGdPYyhsuAz'
@@ -26,12 +23,23 @@ binding.pry
 
     yelp = YelpApi.new(keys)
   	
-    @results = yelp.search_by_category_filter_and_location('bubbletea', user_loc)
-binding.pry
+    results = yelp.search_by_term_and_category_filter_and_location('boba', 'bubbletea', user_loc)
 
+    @boba_locations = results['businesses']   
+
+    @neighborhood_array = (results['businesses']).sort_by { |biz| biz["location"]['neighborhood']}
+
+    @rated_array = (results['businesses']).sort_by { |biz| biz['rating']}
 
     render :results
   end
+
+  def show
+  id = params
+
+  end
+
+
 
 
   def new
