@@ -13,6 +13,9 @@
 
 class User < ActiveRecord::Base
 
+has_many :bobalocations
+has_many :adventures
+
 has_secure_password
 
 before_save { |user| user.email = email.downcase}

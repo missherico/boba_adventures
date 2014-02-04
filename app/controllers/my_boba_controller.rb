@@ -32,8 +32,6 @@ class MyBobaController < ApplicationController
   end
 
   def show
-  id = params[:id]
-  @my_boba = My_boba.find(id)
   end
 
   def new

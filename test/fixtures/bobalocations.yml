@@ -1,11 +1,9 @@
 # == Schema Information
 #
-# Table name: neighborhoods
+# Table name: bobalocations
 #
 #  id         :integer          not null, primary key
-#  hood       :string(255)
-#  city       :string(255)
-#  state      :string(255)
+#  yelp_id    :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #
@@ -13,11 +11,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  hood: MyString
-  city: MyString
-  state: MyString
+  yelp_id: MyString
 
 two:
-  hood: MyString
-  city: MyString
-  state: MyString
+  yelp_id: MyString

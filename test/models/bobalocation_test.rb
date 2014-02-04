@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FunThingsControllerTest < ActionController::TestCase
+class BobalocationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

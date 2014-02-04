@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FunThingTest < ActiveSupport::TestCase
+class AdventuresControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

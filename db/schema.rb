@@ -11,36 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204030518) do
+ActiveRecord::Schema.define(version: 20140204200458) do
 
-  create_table "fun_things", force: true do |t|
-    t.string   "activity"
-    t.string   "neighborhood"
+  create_table "adventures", force: true do |t|
+    t.string   "name"
+    t.text     "description"
     t.string   "cross_st1"
-    t.string   "cross_st2"
-    t.text     "insider_tip"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "my_bobas", force: true do |t|
+  create_table "bobalocations", force: true do |t|
     t.string   "yelp_id"
-    t.string   "name",          null: false
-    t.text     "address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "phone"
-    t.string   "mobile_url"
-    t.text     "neighborhoods"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "location"
-  end
-
-  create_table "neighborhoods", force: true do |t|
-    t.string   "hood"
-    t.string   "city"
-    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
