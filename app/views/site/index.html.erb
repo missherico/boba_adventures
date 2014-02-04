@@ -1,10 +1,21 @@
-<div class='row'>
-<h1>my boba! </h1>
+<div class="row">
+<div class='col-xs-10 col-xs-offset-1 text-center'>	
 
-<%= button_to 'need boba fix!', {controller: :my_boba, url: search_path}, method: :get, class: 'btn'  %>
+<h1 class='banner londrina'> boba adventures </h1>
+
+
+<br />
+  <div>
+    <%= button_to 'need boba fix!', {controller: :my_boba, action: 'search', url: search_path}, method: :get, class: 'btn btn-lg btnfont btn-customGR'  %>
+  </div>
+<br />
+  <div>
+    <%= button_to 'bobadventures!', {controller: :adventures, url: adventures_path}, method: :get, class: 'btn btn-lg btnfont btn-customPR'  %>
+  </div>
+<br />
+  <div>
+    <%= button_to 'get my bobadventures passport!', {controller: :users, action: "new", url: signup_path}, method: :get, class: 'btn btn-lg btnfont btn-customYW'  %>
+  </div>
 
 </div>
 
-<div>
-<%= button_to 'bobadventures!', {controller: :my_boba, url: search_path}, method: :get, class: 'btn'  %>
-</div>

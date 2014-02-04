@@ -1,5 +1,6 @@
 WheresMyBoba::Application.routes.draw do
 
+  root 'site#index'
   resources :site, :users, :sessions
 
   get '/signup', to: 'users#new'
@@ -11,7 +12,7 @@ WheresMyBoba::Application.routes.draw do
   get '/my_boba/search', to: 'my_boba#search', as: :search
   post '/my_boba/results', to: 'my_boba#results', as: :results
   
-  resources :my_boba
+  resources :my_boba, :adventures
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

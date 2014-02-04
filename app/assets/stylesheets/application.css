@@ -9,9 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require style.css
+ *= require '../../../vendor/assets/stylesheets/bootstrap/bootstrap.scss'
  *= require_tree .
  */
 
-/*font-family: 'Muli', sans-serif;
-font-family: 'Londrina Shadow', cursive;
-font-family: 'Megrim', cursive;*/
