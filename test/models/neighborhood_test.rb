@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class NeighborhoodsTest < ActiveSupport::TestCase
+class NeighborhoodTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

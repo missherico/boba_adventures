@@ -10,14 +10,5 @@
 #  updated_at :datetime
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  hood: MyString
-  city: MyString
-  state: MyString
-
-two:
-  hood: MyString
-  city: MyString
-  state: MyString
+class Neighborhood < ActiveRecord::Base
+end
