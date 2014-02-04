@@ -1,9 +1,19 @@
-<h3>There has GOT to be some boba here somewhere.</h3>
-<h4>Search a City and State</h4>
-<div>
-<%= form_tag({:controller=>"my_boba", :action=>"results"}, method: :post) do  %>
-  <%= search_field :location, nil, placeholder: "City, State" %>
-  <%= submit_tag 'Search!'%>
-<% end %>
+<div class='row col-xs-12'>
+
+  <div class='row'>
+  	<div class='col-xs-10 col-xs-offset-1'>
+  <h3>There has GOT to be some boba here somewhere.</h3>
+  <h4>Search a City and State</h4>
+    </div>
+  </div>
+
+  <div class='row'>
+  	<div class='col-xs-10 col-xs-offset-1'>
+    <%= form_tag({:controller=>"my_boba", :action=>"results"}, method: :post) do  %>
+    <%= search_field :location, nil, placeholder: "City, State" %>
+    <%= submit_tag 'Search!'%>
+    <% end %>
+    </div>
+  </div>
 
 </div>
