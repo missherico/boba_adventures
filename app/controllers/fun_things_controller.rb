@@ -1,0 +1,2 @@
+class FunThingsController < ApplicationController
+end

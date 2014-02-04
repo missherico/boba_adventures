@@ -27,21 +27,21 @@ my_bobas << My_boba.create(yelp_id: 'quickly-san-francisco-18')
 my_bobas << My_boba.create(yelp_id: 'bb-tea-station-san-francisco')
 my_bobas << My_boba.create(yelp_id: 'pineapple-kingdom-san-francisco')
 
+neighborhoods = []
+neighborhoods << Neighborhood.create(hood: 'Chinatown', city: 'San Francisco', state: 'CA')
+neighborhoods << Neighborhood.create(hood: 'Parkside', city: 'San Francisco', state: 'CA')
+neighborhoods << Neighborhood.create(hood: 'Civic Center', city: 'San Francisco', state: 'CA')
+neighborhoods << Neighborhood.create(hood: 'SoMa', city: 'San Francisco', state: 'CA')
+
 
 # == Schema Information
 #
-# Table name: my_bobas
+# Table name: neighborhoods
 #
-#  id            :integer          not null, primary key
-#  yelp_id       :string(255)
-#  name          :string(255)      not null
-#  address       :text
-#  city          :string(255)
-#  state         :string(255)
-#  phone         :string(255)
-#  mobile_url    :string(255)
-#  neighborhoods :text
-#  created_at    :datetime
-#  updated_at    :datetime
-#  location      :string(255)
+#  id         :integer          not null, primary key
+#  hood       :string(255)
+#  city       :string(255)
+#  state      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
 #

@@ -20,8 +20,6 @@ class MyBoba < ActiveRecord::Base
 
 
 
-self.yelp_me
-
 
 private
 

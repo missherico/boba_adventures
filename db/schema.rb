@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204022107) do
+ActiveRecord::Schema.define(version: 20140204030518) do
+
+  create_table "fun_things", force: true do |t|
+    t.string   "activity"
+    t.string   "neighborhood"
+    t.string   "cross_st1"
+    t.string   "cross_st2"
+    t.text     "insider_tip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "my_bobas", force: true do |t|
     t.string   "yelp_id"

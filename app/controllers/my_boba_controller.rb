@@ -2,7 +2,6 @@ class MyBobaController < ApplicationController
 
 
   def index
-    @my_boba = params[:search]
   end
 
   def search
@@ -26,26 +25,22 @@ class MyBobaController < ApplicationController
     results = yelp.search_by_term_and_category_filter_and_location('boba', 'bubbletea', user_loc)
 
     @boba_locations = results['businesses']   
-
     @neighborhood_array = (results['businesses']).sort_by { |biz| biz["location"]['neighborhood']}
-
     @rated_array = (results['businesses']).sort_by { |biz| biz['rating']}
 
     render :results
   end
 
   def show
-  id = params
-
+  id = params[:id]
+  @my_boba = My_boba.find(id)
   end
-
-
-
 
   def new
   end
 
   def create
+    
   end
  
   def update
