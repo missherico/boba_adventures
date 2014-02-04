@@ -14,9 +14,9 @@
       <%= boba_locations['id'] %>
   	</td>
   	<td>
-
-      <%= link_to boba_locations['name'], {controller: :my_boba, action: 'show', url: my_boba_path(boba_locations['id'])}, method: :get %>
+      <a href="/my_boba/<%= boba_locations['id']%>"</a>
       <%= boba_locations['name'] %>
+      </a>
   	</td>
   	<td>
       <%= boba_locations['location']['neighborhoods'] %>
