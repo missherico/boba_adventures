@@ -1,8 +1,11 @@
-<h3> RESULTS </h3>
+<div class='row col-xs-12 text-right'>
+<h2 class='londrina'> boba near:&nbsp;&nbsp;<%= @user_loc %>&nbsp; </h2>
 
-<h4> THERE ARE <%= @boba_locations.length %> locations.  Let's sort further</h4>
+<h4> THERE ARE <%= @boba_locations.length %> locations.  Let's sort further.&nbsp;</h4>
 
+</div>
 
+<div class='col-xs-10 col-xs-offset-1'>
 
 <table>
   <% @boba_locations.each do |boba_locations| %>
@@ -11,16 +14,18 @@
       <%= boba_locations['id'] %>
   	</td>
   	<td>
-      <a href="/my_boba/<%= boba_locations.id%>"><%= boba_locations['name'] %></a>
+
+      <%= link_to boba_locations['name'], {controller: :my_boba, action: 'show', url: my_boba_path(boba_locations['id'])}, method: :get %>
+      <%= boba_locations['name'] %>
   	</td>
   	<td>
       <%= boba_locations['location']['neighborhoods'] %>
+      
   	</td>
   	<td>
       <%= boba_locations['is_closed'] %>
   	</td>
   </tr>
 <% end %>
-
-
 </table>
+</div>

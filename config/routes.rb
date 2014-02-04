@@ -11,8 +11,9 @@ WheresMyBoba::Application.routes.draw do
   
   get '/my_boba/search', to: 'my_boba#search', as: :search
   post '/my_boba/results', to: 'my_boba#results', as: :results
+  get '/my_boba/:yelp_id', to: 'my_boba#show', as: :my_boba
   
-  resources :my_boba, :adventures
+  resources :adventures
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
