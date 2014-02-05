@@ -7,10 +7,8 @@ include AdventuresHelper
   end
 
   def new
-    @user = current_user
-    b = Bobalocations.last
-    binding.pry    
     id = params[:yelp_id]
+    location = Bobalocation.find_by_yelp_id(id)
 
 
     consumer_key = 'pXI7O2w2TzCcH7ub3Di5Bw'
@@ -29,21 +27,22 @@ include AdventuresHelper
   end
 
   def create
-  	new_adventure = params.require(:adventure).permit(:name, :description, :city, :state, :address, :cross_st1, :cross_st2)
-    new_adventure[:user_id]= current_user.user_id
-    @adventure = Adventure.create(new_adventure)
+    id = params[:yelp_id]
+    location = Bobalocation.find_by_yelp_id(id)
 
-    render :show
+
+  	new_adventure = params.require(:adventure).permit(:name, :description, :city, :state, :address, :cross_st1, :cross_st2)
+    new_adventure
+    new_adventure[:user_id]= current_user.id
+    new_adventure[:bobalocation_id] = location.id
+    adventure = Adventure.create(new_adventure)
+   binding.pry
+    redirect_to show_adventure_path(id, adventure.id)
   end
 
   def show
-   id = params[:yelp_id]
-
-
-binding.pry
-
-
   	@adventure = Adventure.find(params[:id])
+
   end
 
   def edit

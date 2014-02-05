@@ -12,6 +12,7 @@ class Bobalocation < ActiveRecord::Base
 	has_many :users
   has_many :adventures, through: :user
 	validates :yelp_id, uniqueness: true
+  
 
 
 
@@ -38,9 +39,6 @@ class Bobalocation < ActiveRecord::Base
   end  
 
 
-  def self.hold_an_index
-    Bobalocation.find_by_yelp_id(a)
-  end
 
 
   def self.load_yelp
