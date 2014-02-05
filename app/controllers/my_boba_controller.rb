@@ -36,7 +36,19 @@ class MyBobaController < ApplicationController
     yelp = YelpApi.new(keys)
     
     @result = yelp.search_by_business_id(id)
+    yelp_id = @result['id']
 
+    hood = @result['location']['neighborhoods']
+
+    unless hood.nil?
+      hood.each do |hood|
+      Neighborhood.create(hood: hood)
+      end
+    end
+
+    binding.pry
+
+    Bobalocation.create(yelp_id: yelp_id)
 
     render :show
 

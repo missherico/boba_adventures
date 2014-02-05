@@ -5,7 +5,7 @@
             <% if signed_in? %>
 
               <li><%= link_to "my profile", current_user %></li>
-              <li><%= link_to "my adventures", current_user %></li>
+              <li><%= link_to "create an adventure", new_adventure_path %></li>
               <li>
                 <%= link_to "Sign out", signout_path, method: "delete" %>
               </li>

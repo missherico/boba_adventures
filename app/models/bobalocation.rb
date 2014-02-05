@@ -12,6 +12,7 @@ class Bobalocation < ActiveRecord::Base
 	has_many :users
 	validates :yelp_id, uniqueness: true
 
+
   def self.load_yelp
   	consumer_key = 'pXI7O2w2TzCcH7ub3Di5Bw'
     consumer_secret = '-PlNCMY1YN1c0-Lh9H4xNWBSMh0'

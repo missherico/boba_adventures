@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140205012123) do
+ActiveRecord::Schema.define(version: 20140205021528) do
 
   create_table "adventures", force: true do |t|
     t.string   "name"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20140205012123) do
 
   create_table "bobalocations", force: true do |t|
     t.string   "yelp_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "neighborhoods", force: true do |t|
+    t.string   "hood"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

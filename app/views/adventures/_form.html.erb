@@ -1,0 +1,17 @@
+<%= form_for @adventure do |f| %>
+  <%= f.text_field :name, :autofocus => true %>
+  <br>
+  <%= f.text_field :description %>
+  <br>
+  <%= f.text_field :city %>
+  <br>
+  <%= f.text_field :state %>
+  <br>
+  <%= f.text_field :cross_st1 %>
+  <br>
+  <%= f.text_field :cross_st2 %>
+  <br>
+  <%= f.text_field :address %>
+  <br>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
