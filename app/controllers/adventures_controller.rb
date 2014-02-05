@@ -36,7 +36,6 @@ include AdventuresHelper
     new_adventure[:user_id]= current_user.id
     new_adventure[:bobalocation_id] = location.id
     adventure = Adventure.create(new_adventure)
-   binding.pry
     redirect_to show_adventure_path(id, adventure.id)
   end
 
@@ -50,10 +49,21 @@ include AdventuresHelper
   end
 
   def update
-    @adventure = current_user.adventures.where(:id => params[:id])
-    @adventure.update_attributes(params[:adventure])
+    @adventure = current_user.adventures.find_by_id(params[:id])
+    upd_adv = params.require(:adventure).permit(:name, :description, :city, :state, :address, :cross_st1, :cross_st2, :user_id, :bobalocation_id)
 
-    render :show
+    if @adventure.update_attributes(upd_adv)
+      flash[:success] = "Adventure updated!"
+
+      id = Bobalocation.find(@adventure.bobalocation_id)
+      redirect_to show_adventure_path(id.id, @adventure.id)
+    else
+      render :edit
+    end
+  end
+
+  def all
+
   end
 
   def destroy

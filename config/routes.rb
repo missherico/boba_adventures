@@ -11,10 +11,11 @@ WheresMyBoba::Application.routes.draw do
   
   get '/my_boba/search', to: 'my_boba#search', as: :search
   post '/my_boba/results', to: 'my_boba#results', as: :results
+  get '/my_boba/adventures', to: 'adventures#all', as: :all_adventures
+
   get '/my_boba/:yelp_id', to: 'my_boba#show', as: :my_boba
 
   get 'my_boba/:yelp_id/adventures', to: 'adventures#index', as: :loc_adventures
-
   get 'my_boba/:yelp_id/adventures/new', to: 'adventures#new', as: :new_adventure
   get 'my_boba/:yelp_id/adventures/:id', to: 'adventures#show', as: :show_adventure
   get 'my_boba/:yelp_id/adventures/:id/edit', to: 'adventures#edit', as: :edit_adventure
