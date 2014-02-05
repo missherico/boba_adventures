@@ -10,7 +10,6 @@
 
 class Bobalocation < ActiveRecord::Base
 	has_many :users
-
 	validates :yelp_id, uniqueness: true
 
   def self.load_yelp

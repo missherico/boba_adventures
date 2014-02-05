@@ -37,6 +37,7 @@ class MyBobaController < ApplicationController
     
     @result = yelp.search_by_business_id(id)
 
+
     render :show
 
   end

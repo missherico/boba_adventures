@@ -1,11 +1,7 @@
 <div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
+  <div class="navbar-inner left-block">
       <nav>
-        <ul class="nav pull-left">
-          <li><h4>Your Boba!</h4></li>
-        </ul>
-        <ul class="nav pull-right">
+        <ul class="nav nav-pills">
             <% if signed_in? %>
               <li><%= link_to "My profile", current_user %></li>
               <li>
@@ -13,10 +9,10 @@
               </li>
             <% else %>
               <li><%= link_to "Sign up", signup_path %></li>
-              <li><%= link_to "Sign in", signin_path %></li>
+              <li>
+                <%= link_to "Sign in", signin_path %></li>
             <% end %>
         </ul>
       </nav>
-    </div>
   </div>
 </div>

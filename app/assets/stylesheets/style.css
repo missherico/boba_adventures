@@ -1,6 +1,19 @@
 /*font-family: 'Muli', sans-serif;
 font-family: 'Londrina Shadow', cursive;
 font-family: 'Megrim', cursive;*/
+.circle {
+  border-radius: 50%;
+  border-color: #fff;
+}
+
+.bigc{
+  width: 125px;
+  height: 125px;
+}
+
+.fontwhite {
+  color: #fff;
+}
 
 .banner {
 	font-size: 100px;
