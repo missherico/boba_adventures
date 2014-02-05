@@ -4,7 +4,6 @@ class CreateAdventures < ActiveRecord::Migration
       t.string :name
       t.text   :description
       t.string :cross_st1
-      t.string :cross_st1
       t.string :address
       t.string :city
       t.string :state

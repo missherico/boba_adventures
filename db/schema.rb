@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204200458) do
+ActiveRecord::Schema.define(version: 20140205012123) do
 
   create_table "adventures", force: true do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20140204200458) do
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cross_st2"
   end
 
   create_table "bobalocations", force: true do |t|

@@ -11,6 +11,7 @@
 #  state       :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  cross_st2   :string(255)
 #
 
 class Adventure < ActiveRecord::Base

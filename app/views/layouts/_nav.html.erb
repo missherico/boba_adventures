@@ -1,9 +1,11 @@
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top col-xs-12">
   <div class="navbar-inner left-block">
       <nav>
         <ul class="nav nav-pills">
             <% if signed_in? %>
-              <li><%= link_to "My profile", current_user %></li>
+
+              <li><%= link_to "my profile", current_user %></li>
+              <li><%= link_to "my adventures", current_user %></li>
               <li>
                 <%= link_to "Sign out", signout_path, method: "delete" %>
               </li>
