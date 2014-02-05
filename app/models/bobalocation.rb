@@ -10,28 +10,49 @@
 
 class Bobalocation < ActiveRecord::Base
 	has_many :users
+  has_many :adventures, through: :user
 	validates :yelp_id, uniqueness: true
 
 
-  def self.load_yelp
-  	consumer_key = 'pXI7O2w2TzCcH7ub3Di5Bw'
+
+  def self.get_results(results)
+    consumer_key = 'pXI7O2w2TzCcH7ub3Di5Bw'
     consumer_secret = '-PlNCMY1YN1c0-Lh9H4xNWBSMh0'
     token = '7S78wEVuSybUcAc1legyfpGdPYyhsuAz'
     token_secret = 'A_vgIl-yVGp87fuPZvuyWeSXcEQ'
-
     keys = {consumer_key: consumer_key, consumer_secret: consumer_secret, token: token, token_secret: token_secret}
-
-    yelp = YelpApi.new(keys)  	
+    yelp = YelpApi.new(keys) 
+    yelp.search_by_term_and_category_filter_and_location('boba', 'bubbletea', results)
   end
 
-  def self.save_a_location
-    load_yelp
-    
-    @id = params[:yelp_id]
-    location = yelp.search_by_id(@id)
-    new_loc = Bobalocation.create(yelp_id: location['businesses']['id'])
 
-  end  	
+  def self.show_location(show)
+    consumer_key = 'pXI7O2w2TzCcH7ub3Di5Bw'
+    consumer_secret = '-PlNCMY1YN1c0-Lh9H4xNWBSMh0'
+    token = '7S78wEVuSybUcAc1legyfpGdPYyhsuAz'
+    token_secret = 'A_vgIl-yVGp87fuPZvuyWeSXcEQ'
+    keys = {consumer_key: consumer_key, consumer_secret: consumer_secret, token: token, token_secret: token_secret}
+    yelp = YelpApi.new(keys) 
+    yelp.search_by_business_id(show)
+
+  end  
+
+
+  def self.hold_an_index
+    Bobalocation.find_by_yelp_id(a)
+  end
+
+
+  def self.load_yelp
+    consumer_key = 'pXI7O2w2TzCcH7ub3Di5Bw'
+    consumer_secret = '-PlNCMY1YN1c0-Lh9H4xNWBSMh0'
+    token = '7S78wEVuSybUcAc1legyfpGdPYyhsuAz'
+    token_secret = 'A_vgIl-yVGp87fuPZvuyWeSXcEQ'
+    keys = {consumer_key: consumer_key, consumer_secret: consumer_secret, token: token, token_secret: token_secret}
+    yelp = YelpApi.new(keys)    
+  end
+
+
 
 def save_search_to_db
     local_array = @result_array.each do |movie|

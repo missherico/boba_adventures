@@ -1,17 +1,17 @@
 <%= form_for @adventure do |f| %>
-  <%= f.text_field :name, :autofocus => true %>
+  <%= f.text_field :name, :autofocus => true, placeholder: "the adventure!" %>
   <br>
-  <%= f.text_field :description %>
+  <%= f.text_field :description, placeholder: "describe it" %>
   <br>
-  <%= f.text_field :city %>
+  <%= f.text_field :city, placeholder: "city" %>
   <br>
-  <%= f.text_field :state %>
+  <%= f.text_field :state, placeholder: "state" %>
   <br>
-  <%= f.text_field :cross_st1 %>
+  <%= f.text_field :cross_st1, placeholder: "cross street 1" %>
   <br>
-  <%= f.text_field :cross_st2 %>
+  <%= f.text_field :cross_st2, placeholder: "cross street 2" %>
   <br>
-  <%= f.text_field :address %>
+  <%= f.text_field :address, placeholder: "address" %>
   <br>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>

@@ -6,11 +6,13 @@
 #  hood       :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  city       :string(255)
+#  state      :string(255)
 #
 
 class Neighborhood < ActiveRecord::Base
 
-  belongs_to :adventure
+  has_and_belongs_to_many :adventures
   validates :hood, uniqueness: true
 
 

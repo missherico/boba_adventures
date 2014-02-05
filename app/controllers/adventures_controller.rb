@@ -7,6 +7,24 @@ include AdventuresHelper
   end
 
   def new
+    @user = current_user
+    b = Bobalocations.last
+    binding.pry    
+    id = params[:yelp_id]
+
+
+    consumer_key = 'pXI7O2w2TzCcH7ub3Di5Bw'
+    consumer_secret = '-PlNCMY1YN1c0-Lh9H4xNWBSMh0'
+    token = '7S78wEVuSybUcAc1legyfpGdPYyhsuAz'
+    token_secret = 'A_vgIl-yVGp87fuPZvuyWeSXcEQ'
+    keys = {consumer_key: consumer_key, consumer_secret: consumer_secret, token: token, token_secret: token_secret}
+    yelp = YelpApi.new(keys)
+
+    @result = yelp.search_by_business_id(id)
+    @rating = @result['rating_img_url']
+    yelp_id = @result['id']
+    hood = @result['location']['neighborhoods']
+
   	@adventure = Adventure.new
   end
 
@@ -19,6 +37,12 @@ include AdventuresHelper
   end
 
   def show
+   id = params[:yelp_id]
+
+
+binding.pry
+
+
   	@adventure = Adventure.find(params[:id])
   end
 
