@@ -1,3 +1,9 @@
 SHOW ME this ADVENTURE!
 
+<%= @adventure.name  %><br />
+<%= @adventure.description  %><br />
+
 <%= @adventure  %>
+
+<br />
+<%= button_to "Delete this Adventure", { action: "destroy", id: @adventure.id }, method: :delete, data: { confirm: "Are you sure?" } %>

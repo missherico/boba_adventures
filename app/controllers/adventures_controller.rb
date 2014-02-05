@@ -67,9 +67,10 @@ include AdventuresHelper
   end
 
   def destroy
-  	adventure = current_user.adventures.where(:id => params[:id])
-  	adventure.delete
-  	redirect_to(adventures_path)
+    adventure = current_user.adventures.find_by_id(params[:id])
+  	id = current_user.id
+    adventure.delete
+  	redirect_to user_adventures_path(id)
 
 
   end

@@ -7,6 +7,7 @@ WheresMyBoba::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
   get '/signin' => 'sessions#new'
 
+  get '/users/:id/adventures', to: 'users#adventures', as: :user_adventures
   #my_boba aliases
   
   get '/my_boba/search', to: 'my_boba#search', as: :search

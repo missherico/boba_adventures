@@ -33,6 +33,14 @@ class UsersController < ApplicationController
   def destroy
   end
 
+  def adventures
+    @user = User.find(params[:id])
+    adventures = Adventure.where("user_id = ?", current_user.id)
+    @adventures = adventures.sort { |x,y| y <=> x}
+
+    binding.pry
+
+  end
 
 
 end
