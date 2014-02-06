@@ -31,7 +31,6 @@ class MyBobaController < ApplicationController
       @neighborhood = hood.join(" ")
     end
     
-    binding.pry
 
 
     Bobalocation.create(yelp_id: yelp_id)

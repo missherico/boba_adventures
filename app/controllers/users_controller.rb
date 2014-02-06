@@ -38,7 +38,6 @@ class UsersController < ApplicationController
     adventures = Adventure.where("user_id = ?", current_user.id)
     @adventures = adventures.sort { |x,y| y <=> x}
 
-    binding.pry
 
   end
 
