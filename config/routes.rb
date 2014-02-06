@@ -3,11 +3,9 @@ WheresMyBoba::Application.routes.draw do
 
   devise_for :users
   root 'site#index'
-  resources :site, :users, :sessions
+  resources :site, :users
 
-  get '/signup', to: 'users#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
-  get '/signin' => 'sessions#new'
+
 
   get '/users/:id/adventures', to: 'users#adventures', as: :user_adventures
   #my_boba aliases
