@@ -11,8 +11,9 @@
 #
 
 class Bobalocation < ActiveRecord::Base
-	# has_many :users
-  # has_many :adventures, through: :user
+	has_many :users
+  has_many :adventures, through: :user
+  has_many :faves, through: :user
 	validates :yelp_id, uniqueness: true
   
 # geocoded_by :full_address
