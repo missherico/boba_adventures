@@ -8,15 +8,11 @@ include AdventuresHelper
 
   def new
     id = params[:yelp_id]
+    @user = current_user
     location = Bobalocation.find_by_yelp_id(id)
 
 
-    consumer_key = 'pXI7O2w2TzCcH7ub3Di5Bw'
-    consumer_secret = '-PlNCMY1YN1c0-Lh9H4xNWBSMh0'
-    token = '7S78wEVuSybUcAc1legyfpGdPYyhsuAz'
-    token_secret = 'A_vgIl-yVGp87fuPZvuyWeSXcEQ'
-    keys = {consumer_key: consumer_key, consumer_secret: consumer_secret, token: token, token_secret: token_secret}
-    yelp = YelpApi.new(keys)
+    yelp = load_yelp
 
     @result = yelp.search_by_business_id(id)
     @rating = @result['rating_img_url']
@@ -64,7 +60,7 @@ include AdventuresHelper
   def all
     all = Adventure.all
     @all = all.sort { |x,y| y <=> x}
-
+    
   end
 
   def destroy
@@ -75,4 +71,15 @@ include AdventuresHelper
 
   end
 
+private
+
+  def load_yelp  
+    consumer_key = 'pXI7O2w2TzCcH7ub3Di5Bw'
+    consumer_secret = '-PlNCMY1YN1c0-Lh9H4xNWBSMh0'
+    token = '7S78wEVuSybUcAc1legyfpGdPYyhsuAz'
+    token_secret = 'A_vgIl-yVGp87fuPZvuyWeSXcEQ'
+    keys = {consumer_key: consumer_key, consumer_secret: consumer_secret, token: token, token_secret: token_secret}
+    yelp = YelpApi.new(keys)
+  end 
+  
 end

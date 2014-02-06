@@ -15,11 +15,18 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    @adventures = Adventure.where(:user_id => current_user.id)
+    @faves = Fave.where(:user_id => current_user.id)    
   end
 
   def adventures
   	@user = User.find(params[:id])
 
+  end
+
+  def faves
+    @user = User.find(params[:id])
   end
 
 

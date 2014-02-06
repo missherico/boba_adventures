@@ -86,4 +86,25 @@ font-family: 'Megrim', cursive;*/
   color: #333 !important;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.00);
   -webkit-font-smoothing: antialiased;
+
+
+
+
+
+
+
+  @media(max-width: 500px) {
+}
+
+/* Small devices (tablets, 768px and up) */
+@media(min-width: 501px) and (max-width:767px) {
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media(min-width: 768px) and (max-width:898px){  
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media(min-width: 899px) {
+}
 }

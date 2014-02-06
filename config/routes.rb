@@ -3,11 +3,14 @@ WheresMyBoba::Application.routes.draw do
 
   devise_for :users
   root 'site#index'
-  resources :site, :users
-
-
+  resources :site
+  resources :users do
+    resources :faves
+  end
 
   get '/users/:id/adventures', to: 'users#adventures', as: :user_adventures
+  
+
   #my_boba aliases
   
   get '/my_boba/search', to: 'my_boba#search', as: :search

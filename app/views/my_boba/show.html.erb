@@ -1,35 +1,35 @@
 <div class='col-xs-12'>
 
 <div class='row text-center col-xs-12'>
-<div class='row text-center col-xs-12'>
 <h1 class="megrim"> <%= @result['name'] %> </h1>
 <img src='<%= @rating%>' class=''></img><br />
 <% unless @result['is_closed'] = 'true'%>
   <%= image_tag('images/open.png', width: '100px') %>
 <% end %>
+<br />
 </div>
 
-<div class='col-xs-3 col-xs-offset-1'>
-<table class='center-block'>
-  <tr>
-  	<td>
-  		<h3>@</h3>
-  	</td>
-  </tr>
+<div class='row text-center'>
+
+<div class='col-xs-5 col-s-4'>
+
+<table class='table center-block'>  
   <tr>
   	<td>
       <strong><%= @neighborhood %></strong>
     </td>
   </tr>
   <tr>
-  	<td>
-      <%= @result['location']['address'].join(" ") %>, <%= @result['location']['postal_code']%>
+    <td>
+      <%= @result['location']['address'].join(" ") %><br />
+      <%= @result['location']['city']%>, <%= @result['location']['postal_code']%><br />
+      <%= @result['display_phone']%>
     </td>
   </tr>
   <tr>
   	<td>
       <% unless (@result['location']['cross_streets']).nil? %>
-      Cross Street(s):&nbsp;
+      By
       <%= @result['location']['cross_streets']%>
       <% end %>
       <br />
@@ -38,22 +38,17 @@
 </table>
 </div>
 
-<div class='col-xs-8'>
+<div class='col-xs-7 col-s-7'>
 <!--add map here -->
-<div id="map-canvas" style='height:250px'/>
-
+<div id="map-canvas" style='height:230px'/>
 
 </div>
+<br />
 </div>
 
-<div class='col-xs-12 '>
-  <div class='circle'>
-    <h3 class='londrina'><%= link_to "Boba Passport", signup_path %></h3>
-        <h3 class='londrina'><%= link_to "Stamp Your Passport", new_adventure_path%></h3>
-
-  </div>
+<div class='row col-xs-12 center-block'>
+<%= link_to 'create an adventure nearby', {controller: :adventures,action: 'new', url: new_adventure_path(current_user)}, method: :get %>
 </div>
-
 
 <div class='row col-xs-12 center-block'>
 
