@@ -6,6 +6,8 @@
 #  yelp_id    :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  latitude   :float
+#  longitude  :float
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

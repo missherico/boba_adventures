@@ -3,6 +3,9 @@ SHOW ME this ADVENTURE!
 <%= @adventure.name  %><br />
 <%= @adventure.description  %><br />
 
+<div id="map" data-cloudmadekey="<%= ENV["CLOUDMADE_API_KEY"] %>"></div>
+
+
 <%= @adventure  %>
 
 <br />

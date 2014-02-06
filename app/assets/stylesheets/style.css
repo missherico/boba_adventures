@@ -1,6 +1,9 @@
 /*font-family: 'Muli', sans-serif;
 font-family: 'Londrina Shadow', cursive;
 font-family: 'Megrim', cursive;*/
+
+#map-canvas { height: 100% }
+
 .circle {
   border-radius: 50%;
   border-color: #fff;

@@ -4,12 +4,14 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
 gem 'typhoeus'
 
 gem 'oauth'
 gem 'yelp4rails'
+
+gem 'gon'
+gem 'geocoder'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -58,3 +60,15 @@ gem 'pry-rails'
 gem 'awesome_print'
 gem 'quiet_assets' 
 end
+
+group :development, :test do
+  gem 'sqlite3'
+  gem 'dotenv-rails'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+ruby "2.0.0"

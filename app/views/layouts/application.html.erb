@@ -3,9 +3,12 @@
 <head>
   <title>Boba Adventures!</title>
   <link href='http://fonts.googleapis.com/css?family=Muli|Londrina+Shadow|Megrim' rel='stylesheet' type='text/css'>
+  <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=<%ENV['GOOGLE_API_KEY']%>&sensor=false"></script>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <%= include_gon %>
 </head>
 <body class="container-fluid col-xs-12">
   <%= render partial: 'layouts/header' %>

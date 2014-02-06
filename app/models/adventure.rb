@@ -14,6 +14,8 @@
 #  cross_st2       :string(255)
 #  user_id         :integer
 #  bobalocation_id :integer
+#  latitude        :float
+#  longitude       :float
 #
 
 class Adventure < ActiveRecord::Base
@@ -21,5 +23,6 @@ class Adventure < ActiveRecord::Base
     has_many :bobalocations, through: :user
 	has_many :neighborhoods
 
-
+    geocoded_by :address
+    after_validation :geocode
 end

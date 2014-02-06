@@ -31,9 +31,13 @@ class MyBobaController < ApplicationController
       @neighborhood = hood.join(" ")
     end
     
-    Bobalocation.create(yelp_id: yelp_id)
-    a = Bobalocation.find_by_yelp_id(yelp_id)
+    binding.pry
 
+
+    Bobalocation.create(yelp_id: yelp_id)
+
+    # gon.locations = Bobalocation.address(@result['location']['display_address'].to_s)
+    
     render :show
   end
 

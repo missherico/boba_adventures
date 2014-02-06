@@ -6,6 +6,8 @@
 #  yelp_id    :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  latitude   :float
+#  longitude  :float
 #
 
 class Bobalocation < ActiveRecord::Base
@@ -13,31 +15,32 @@ class Bobalocation < ActiveRecord::Base
   has_many :adventures, through: :user
 	validates :yelp_id, uniqueness: true
   
+geocoded_by :address
+after_validation :geocode
+
+
+
+
 
   def self.get_results(results)
-    consumer_key = 'pXI7O2w2TzCcH7ub3Di5Bw'
-    consumer_secret = '-PlNCMY1YN1c0-Lh9H4xNWBSMh0'
-    token = '7S78wEVuSybUcAc1legyfpGdPYyhsuAz'
-    token_secret = 'A_vgIl-yVGp87fuPZvuyWeSXcEQ'
-    keys = {consumer_key: consumer_key, consumer_secret: consumer_secret, token: token, token_secret: token_secret}
-    yelp = YelpApi.new(keys) 
+    yelp = self.load_yelp
     yelp.search_by_term_and_category_filter_and_location('boba', 'bubbletea', results)
   end
 
 
   def self.show_location(show)
-    consumer_key = 'pXI7O2w2TzCcH7ub3Di5Bw'
-    consumer_secret = '-PlNCMY1YN1c0-Lh9H4xNWBSMh0'
-    token = '7S78wEVuSybUcAc1legyfpGdPYyhsuAz'
-    token_secret = 'A_vgIl-yVGp87fuPZvuyWeSXcEQ'
-    keys = {consumer_key: consumer_key, consumer_secret: consumer_secret, token: token, token_secret: token_secret}
-    yelp = YelpApi.new(keys) 
+    yelp = self.load_yelp
     yelp.search_by_business_id(show)
 
   end  
 
 
 
+
+
+
+
+private
 
   def self.load_yelp
     consumer_key = 'pXI7O2w2TzCcH7ub3Di5Bw'
