@@ -15,6 +15,15 @@ class MyBobaController < ApplicationController
     @neighborhood_array = (results['businesses']).sort_by { |biz| biz["location"]['neighborhood']}
     @rated_array = (results['businesses']).sort_by { |biz| biz['rating']}
 
+    geocoder = Graticule.service(:google).new ENV['GOOGLE_API_KEY']
+    loc = geocoder.locate("#{location}")
+
+    lat = loc.latitude
+    long = loc.longitude
+    
+    binding.pry
+
+
     render :results
   end
 
