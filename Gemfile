@@ -3,12 +3,15 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-# Use sqlite3 as the database for Active Record
+gem 'devise'
 
 gem 'typhoeus'
 
 gem 'oauth'
 gem 'yelp4rails'
+
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
 
 gem 'gon'
 gem 'geocoder'

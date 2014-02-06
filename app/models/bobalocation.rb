@@ -11,14 +11,17 @@
 #
 
 class Bobalocation < ActiveRecord::Base
-	has_many :users
-  has_many :adventures, through: :user
+	# has_many :users
+  # has_many :adventures, through: :user
 	validates :yelp_id, uniqueness: true
   
-geocoded_by :address
-after_validation :geocode
+# geocoded_by :full_address
+# after_validation :geocode
 
 
+# def full_address
+
+# end 
 
 
 
