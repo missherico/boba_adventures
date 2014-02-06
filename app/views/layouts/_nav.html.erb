@@ -6,11 +6,13 @@
 
               <li><%= link_to "my profile", current_user %></li>
               <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+              <li><%= link_to "my adventures", user_adventures_path(current_user.id) %></li>
               <li><%= link_to "search for boba.", search_path %></li>
             <% else %>
+              <li><%= link_to "adventures!", all_adventures_path %></li>
+              <li><%= link_to "search for boba.", search_path %></li>
               <li><%= link_to "Sign up", signup_path %></li>
-              <li>
-                <%= link_to "Sign in", signin_path %></li>
+              <li><%= link_to "Sign in", signin_path %></li>
             
 
             <% end %>

@@ -9,8 +9,8 @@
 <% end %>
 </div>
 
-<div class='col-xs-12 col-m-8'>
-<table>
+<div class='col-xs-3 col-xs-offset-1'>
+<table class='center-block'>
   <tr>
   	<td>
   		<h3>@</h3>
@@ -28,27 +28,24 @@
   </tr>
   <tr>
   	<td>
+      <% unless (@result['location']['cross_streets']).nil? %>
       Cross Street(s):&nbsp;
       <%= @result['location']['cross_streets']%>
+      <% end %>
       <br />
     </td>
   </tr>
 </table>
+</div>
 
-	<div class='col-xs-3 circle btn-customGR'>
- HELLOW
+<div class='col-xs-8'>
+<!--add map here -->
 
 
-	</div>
-
-	<div class='col-xs-3 circle btn-customGR'>
-
-HELLOW
-	</div>
 
 </div>
 
-<div class='col-xs-12 col-m-4 col-m-offset-8'>
+<div class='col-xs-12 '>
   <div class='circle'>
     <h3 class='londrina'><%= link_to "Boba Passport", signup_path %></h3>
         <h3 class='londrina'><%= link_to "Stamp Your Passport", new_adventure_path%></h3>
@@ -57,33 +54,9 @@ HELLOW
 </div>
 
 
-<!-- <div class='row center-block'>
-<table class='col-xs-12'>
-	<tr>
-	<td class='col-xs-2' >
-	<div class='circle btn-customPR center-block'><br /><br />
-	</div>
-    </td>
-    <td class='col-xs-2'>
-	<div class='circle btn-customYW center-block'><br /><br />
-	</div>
-    </td>
-    <td class='col-xs-2'>
-	<div class='circle btn-customGR center-block'><br /><br />
-	</div>
-    </td>
-    <td class='col-xs-2'>
-	<div class='circle btn-customYW center-block'><br /><br />
-	</div>
-    </td>
-
-    </tr>
-</table>
-</div> -->
-
 <div class='row col-xs-12 center-block'>
 
-
+<%= @result %>
 </div>
 
 

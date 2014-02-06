@@ -1,0 +1,20 @@
+ALL ADVENTURES
+
+<% if signed_in? %>
+  <table>
+  	<% @all.each do |a| %>
+    <tr>
+    	<td>
+    		<%= a.name %>
+    	</td>
+    </tr>
+    <% end %>
+  </table> 
+<% else %>
+<div class='text-center'>
+	<h3> THERE ARE </H3>	  
+	<H1><%= @all.length %></H1>
+	<H3> ADVENTURES!</h3>
+		SIGN UP NOW!
+</div>
+<% end %>

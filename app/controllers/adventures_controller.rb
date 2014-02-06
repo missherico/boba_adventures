@@ -30,18 +30,17 @@ include AdventuresHelper
     id = params[:yelp_id]
     location = Bobalocation.find_by_yelp_id(id)
 
-
   	new_adventure = params.require(:adventure).permit(:name, :description, :city, :state, :address, :cross_st1, :cross_st2)
     new_adventure
     new_adventure[:user_id]= current_user.id
     new_adventure[:bobalocation_id] = location.id
     adventure = Adventure.create(new_adventure)
+
     redirect_to show_adventure_path(id, adventure.id)
   end
 
   def show
   	@adventure = Adventure.find(params[:id])
-
   end
 
   def edit
@@ -63,6 +62,8 @@ include AdventuresHelper
   end
 
   def all
+    all = Adventure.all
+    @all = all.sort { |x,y| y <=> x}
 
   end
 
@@ -71,7 +72,6 @@ include AdventuresHelper
   	id = current_user.id
     adventure.delete
   	redirect_to user_adventures_path(id)
-
 
   end
 
