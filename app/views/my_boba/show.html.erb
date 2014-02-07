@@ -1,8 +1,7 @@
 <div class='col-xs-12'>
 
-<div class='row text-center col-xs-12'>
-<h1 class="megrim"> <%= @result['name'] %> </h1>
-<img src='<%= @rating%>' class=''></img><br />
+<div class='row col-xs-12'>
+<br />
 <% unless @result['is_closed'] = 'true'%>
   <%= image_tag('images/open.png', width: '100px') %>
 <% end %>
@@ -13,7 +12,23 @@
 
 <div class='col-xs-5 col-s-4'>
 
-<table class='table center-block'>  
+<table class='table'> 
+  <thead>
+  <%= form_for @user, controller: :faves, action: "create", url: new_fave_path(current_user, :yelp_id => @id ), method: :create do |f| %>
+
+<%= f.button 'I love this boba place!', class: 'btn btn-default' %>
+<% end %><br /><br />
+  </thead> 
+  <tr>
+    <td>
+      <h1 class="megrim"> <%= @result['name'] %> </h1>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src='<%= @rating%>' class=''></img>
+    </td>
+  </tr>
   <tr>
   	<td>
       <strong><%= @neighborhood %></strong>
@@ -35,6 +50,12 @@
       <br />
     </td>
   </tr>
+  <tr>
+    <td>
+
+      <br />
+    </td>
+  </tr>
 </table>
 </div>
 
@@ -50,15 +71,34 @@
 <%= link_to 'create an adventure nearby', {controller: :adventures,action: 'new', url: new_adventure_path(current_user)}, method: :get %>
 </div>
 
-<%= form_for @user, controller: :faves, action: "create", url: new_fave_path(current_user, :yelp_id => @id ), method: :create do |f| %>
-
-<%= f.button 'I love this boba place!' %>
-<% end %>
+<%= @boba.latitude %>
+<%= @boba.longitude %>
 
 <div class='row col-xs-12 center-block'>
 
-<%= @result %>
 </div>
+<br />
+<div class='col-xs-12'>
+<table class='table'>
+<% @adventures['businesses'].each do |adventures| %>
+  <tr>
+    <td>
+      <%= adventures['name'] %>
+      </a>
+    </td>
+    <td>
+      <% if adventures['categories'] != nil %>
+      <%= adventures['categories'].join(", ") %>
+      <% end %>
+      
+    </td>
 
+    <td>
+
+
+    </td>
+  </tr>
+<% end %>
+</table>
 
 </div>

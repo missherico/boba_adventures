@@ -42,8 +42,6 @@ class Bobalocation < ActiveRecord::Base
 
 
 
-
-
 private
 
   def self.load_yelp
