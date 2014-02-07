@@ -219,7 +219,7 @@ DEPENDENCIES
   meta_request
   oauth
   omniauth
-  omniauth-facebook (= 1.4.0)
+  omniauth-facebook
   pg
   pry
   pry-byebug

@@ -35,24 +35,21 @@ class MyBobaController < ApplicationController
     @rating = @result['rating_img_url']
     yelp_id = @result['id']
     hood = @result['location']['neighborhoods']
-    # location = @result['location']['address']
-    # location = @result['location']['postal_code']
-
     unless hood.nil?
       @neighborhood = hood.join(" ")
     end
+    addy = @result['location']['address']
+    addy.insert(1, @result['location']['city'])
+    addy.insert(2, @result['location']['state_code'])
+    location = addy.flatten 
     
-    Bobalocation.create(yelp_id: yelp_id)
-    
-    # geocoder = Graticule.service(:google).new ENV['GOOGLE_API_KEY']
-    # loc = geocoder.locate("#{location}")
+    geocoder = Graticule.service(:google).new ENV['GOOGLE_API_KEY']
+    loc = geocoder.locate("#{location}")
 
-    # lat = loc.latitude
-    # long = loc.longitude
-
-
-    # gon.locations = Bobalocation.address(@result['location']['display_address'].to_s)
-    
+    lat = loc.latitude
+    long = loc.longitude
+    boba = Bobalocation.create(yelp_id: yelp_id, latitude: lat, longitude: long)
+    gon.locations = boba
   end
 
 

@@ -1,7 +1,9 @@
 class FavesController < ApplicationController
+ before_filter :authenticate_user!
+ before_filter :user_signed_in?, only: [:create, :new, :edit, :update]
 
   def create
-    id = params[:user][:yelp_id]
+    id = params[:yelp_id]
     user_id = current_user.id
     location = Bobalocation.find_by_yelp_id(id)
 

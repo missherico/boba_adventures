@@ -18,23 +18,37 @@
 
 
 function initialize() {
-	var center = new google.maps.LatLng(37.7723412,-122.4379276);
+	var center = new google.maps.LatLng(gon.locations.latitude, gon.locations.longitude);
 	var mapOptions = {
  	 center: center, 
  	 zoom: 12
+   
 	};
   
 	var map = new google.maps.Map(document.getElementById("map-canvas"),
   	  mapOptions);
 
-  for (var i = 0; i < gon.locations.length; i++) {
-    var latLongPos = new google.maps.LatLng(gon.locations[i].lat,gon.locations[i].long);
-    var temp_marker = new google.maps.Marker({
-      position: latLongPos,
-      map: map,
-      title:"Boba Spotting " + i
-    }); 
-  }
+  var marker = new google.maps.Marker({
+    position: center,
+    icon: new google.maps.MarkerImage('/assets/taro_bubble.gif'),
+                                        // new google.maps.Size(40, 40),
+                                        // new google.maps.Point(0, 0),
+                                        // new google.maps.Point(32 / 2, 35),
+                                        // new google.maps.Size(40, 40))
+  });
+  marker.setMap(map);
+
+  
+
+
+  // for (var i = 0; i < gon.locations.length; i++) {
+  //   var latLongPos = new google.maps.LatLng(gon.locations[i].lat,gon.locations[i].long);
+  //   var temp_marker = new google.maps.Marker({
+  //     position: latLongPos,
+  //     map: map,
+  //     title:"Boba Spotting " + i
+  //   }); 
+  // }
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
