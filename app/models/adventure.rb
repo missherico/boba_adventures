@@ -23,6 +23,5 @@ class Adventure < ActiveRecord::Base
     has_many :bobalocations, through: :user
 	has_many :neighborhoods
 
-    geocoded_by :address
-    after_validation :geocode
+
 end

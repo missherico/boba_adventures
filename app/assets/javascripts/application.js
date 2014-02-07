@@ -23,6 +23,7 @@ function initialize() {
  	 center: center, 
  	 zoom: 12
 	};
+  
 	var map = new google.maps.Map(document.getElementById("map-canvas"),
   	  mapOptions);
 

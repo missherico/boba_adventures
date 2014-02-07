@@ -20,33 +20,39 @@ class MyBobaController < ApplicationController
 
     lat = loc.latitude
     long = loc.longitude
-    
-    binding.pry
+
 
 
     render :results
   end
 
   def show
-    id = params[:yelp_id]
+    @id = params[:yelp_id]
+    @user = current_user
 
-    @result = Bobalocation.show_location(id)
+    @result = Bobalocation.show_location(@id)
 
     @rating = @result['rating_img_url']
     yelp_id = @result['id']
     hood = @result['location']['neighborhoods']
+    # location = @result['location']['address']
+    # location = @result['location']['postal_code']
 
     unless hood.nil?
       @neighborhood = hood.join(" ")
     end
     
-
-
     Bobalocation.create(yelp_id: yelp_id)
+    
+    # geocoder = Graticule.service(:google).new ENV['GOOGLE_API_KEY']
+    # loc = geocoder.locate("#{location}")
+
+    # lat = loc.latitude
+    # long = loc.longitude
+
 
     # gon.locations = Bobalocation.address(@result['location']['display_address'].to_s)
     
-    render :show
   end
 
 

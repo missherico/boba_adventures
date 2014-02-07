@@ -50,6 +50,12 @@
 <%= link_to 'create an adventure nearby', {controller: :adventures,action: 'new', url: new_adventure_path(current_user)}, method: :get %>
 </div>
 
+<%= form_for @user, controller: :faves, action: "create", url: new_fave_path(current_user), method: :create do |f| %>
+<%= f.hidden_field :yelp_id, :value => @id %>
+
+<%= f.button 'I love this boba place!' %>
+<% end %>
+
 <div class='row col-xs-12 center-block'>
 
 <%= @result %>

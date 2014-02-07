@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     @adventures = Adventure.where(:user_id => current_user.id)
-    @faves = Fave.where(:user_id => current_user.id)    
+    @faves = Fave.where(:user_id => current_user.id)  
   end
 
   def adventures
@@ -25,9 +25,7 @@ class UsersController < ApplicationController
 
   end
 
-  def faves
-    @user = User.find(params[:id])
-  end
+  
 
 
 

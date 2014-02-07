@@ -1,15 +1,12 @@
 WheresMyBoba::Application.routes.draw do
 
-
-  devise_for :users
   root 'site#index'
-  resources :site
-  resources :users do
-    resources :faves
-  end
+  devise_for :users
+  resources :site, :users
 
   get '/users/:id/adventures', to: 'users#adventures', as: :user_adventures
-  
+  post '/users/:id/faves', to: 'faves#create', as: :new_fave
+  delete '/users/:id/faves', to: 'faves#destroy'
 
   #my_boba aliases
   

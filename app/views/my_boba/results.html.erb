@@ -3,6 +3,10 @@
 
 <h4 class='text-center'> THERE ARE <%= @boba_locations.length %> locations. click to see adventure details around a location. &nbsp;</h4>
 
+<div id="map-canvas" style='height:230px'/>
+
+</div> 
+
 </div>
 
 <div class='col-xs-10 col-xs-offset-1'>
@@ -32,7 +36,9 @@
       </a>
   	</td>
   	<td>
+      <% if boba_locations['location']['neighborhoods'] != nil %>
       <%= boba_locations['location']['neighborhoods'].join(", ") %>
+      <% end %>
       
   	</td>
   	<td>

@@ -2,7 +2,12 @@ SHOW ME A USER!
 
 HELLO <%= @user.name %>
 <br />
-You have <%= @adventures.length %> Adventures
+You have <% unless @adventures = nil %>
+  <%= @adventures.length %>
+<% else %>
+ <%= "0" %>
+<% end %>
+ Adventures
 <br />
 You have <%= @faves.length %> favorite boba places!
 

@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   
 	has_many :bobalocations
+	has_many :faves
 	has_many :adventures
 	
 end

@@ -12,5 +12,7 @@
 class Fave < ActiveRecord::Base
 
   belongs_to :user
-  has_many :bobalocations, through: :user
+  has_many :boba_locations, through: :user
+
+  validates_uniqueness_of :bobalocation_id, scope: [:user_id]
 end
