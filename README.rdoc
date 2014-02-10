@@ -1,28 +1,13 @@
-== README
+== BOBA ADVENTURES!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to boba adventures - when you are on an adventure and need to get your boba fix, we'll get you there.
 
-Things you may want to cover:
+Used to make this app:
 
-* Ruby version
+* Yelp, via Yelp4Rails gem
 
-* System dependencies
+* Geocoding with Gon, Graticule, Acts as Geocodable gems
 
-* Configuration
+* special thanks to Devise gem for bugs.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Looking forward to making this thee online boba locator on the web.  Best, Isa

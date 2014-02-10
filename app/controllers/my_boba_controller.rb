@@ -48,7 +48,6 @@ class MyBobaController < ApplicationController
     @adventures = yelp.search_by_category_filter_and_location('active', b)
     cats = @adventures['businesses'].map { |cat| cat['categories']}
 
-binding.pry
 
   end
 
